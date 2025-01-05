@@ -37,6 +37,11 @@ models:
   - name: "parking_finish_stat"
     description: "Trip finish parking statistics by 10 m hexagons"
 
+  - name: "events_clean"
+    description: "User events without duplicates"
+    config:
+      materialized: incremental
+
 sources:
   - name: "scooters_raw"
     description: "Raw data provided by scooters service"
@@ -47,3 +52,6 @@ sources:
 
       - name: "users"
         description: "Users of scooter service"
+
+      - name: "events"
+        description: "Raw user events with duplicates"
